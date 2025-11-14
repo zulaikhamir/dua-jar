@@ -2,10 +2,10 @@ import { Heart, ExternalLink } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-gradient-to-r from-indigo-50 via-violet-50 to-rose-50 border-t border-violet-100/60 py-8 px-8">
-      <div className="max-w-6xl mx-auto flex flex-col items-center gap-4">
-        {/* Made with love */}
-        <div className="flex items-center gap-2 text-slate-600">
+    <footer className="w-full bg-linear-to-r from-indigo-50 via-violet-50 to-rose-50 border-t border-violet-100/60 py-8 px-4 sm:px-6">
+      <div className="w-full flex flex-col gap-4 text-sm text-slate-600 sm:flex-row sm:items-center sm:justify-between">
+        {/* Left cluster */}
+        <div className="flex items-center gap-2">
           <span>Made with</span>
           <Heart className="w-4 h-4 text-rose-500 fill-rose-500 animate-pulse" />
           <span>by</span>
@@ -20,22 +20,17 @@ export default function Footer() {
           </a>
         </div>
 
-        {/* Copyright */}
-        <div className="text-sm text-slate-500">
-          © {new Date().getFullYear()} Jar of Duas. All rights reserved.
-        </div>
-
-        {/* Optional: Social links or additional info */}
-        <div className="flex gap-6 text-sm text-slate-600">
-          <button className="hover:text-violet-600 transition-colors">
-            Privacy
-          </button>
-          <button className="hover:text-violet-600 transition-colors">
-            Terms
-          </button>
-          <button className="hover:text-violet-600 transition-colors">
-            Contact
-          </button>
+        {/* Right cluster */}
+        <div className="flex items-center gap-3 text-slate-500">
+          <span>© {new Date().getFullYear()} Jar of Duas.</span>
+          <a
+            href="https://www.linkedin.com/in/zulaikhaashiq/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-violet-600 hover:text-rose-600 transition-colors"
+          >
+            LinkedIn
+          </a>
         </div>
       </div>
     </footer>

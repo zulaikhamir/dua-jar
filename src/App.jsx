@@ -9,10 +9,7 @@ function App() {
   const [isAboutOpen, setIsAboutOpen] = useState(false);
   return (
     <div>
-      <Navbar
-        onAboutClick={() => setIsAboutOpen(true)}
-        isAboutOpen={isAboutOpen}
-      />
+      <Navbar onAboutClick={() => setIsAboutOpen(true)} />
       <AboutModal open={isAboutOpen} onClose={() => setIsAboutOpen(false)} />
       <Hero />
       <Footer />

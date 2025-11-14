@@ -3,66 +3,60 @@ import { Heart, NotebookPen, Sparkles, X } from "lucide-react";
 export default function AboutModal({ open, onClose }) {
   if (!open) return null;
 
+  const infoBlocks = [
+    {
+      icon: Heart,
+      title: "Purpose",
+      body: "Jar of Duas is a peaceful digital sanctuary where you can discover beautiful Islamic prayers and supplications for daily spiritual reflection.",
+    },
+    {
+      icon: NotebookPen,
+      title: "How It Works",
+      body: "Tap the jar to receive a lovingly curated dua. Each prayer comes with its translation so you can reflect on its meaning instantly.",
+    },
+    {
+      icon: Sparkles,
+      title: "Daily Inspiration",
+      body: "Make it a heartwarming ritual to draw a dua each day for guidance, comfort, and connection with your faith.",
+    },
+  ];
+
   return (
-    <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50">
-      <div className="bg-white rounded-xl shadow-xl max-w-md w-full p-6 relative ">
+    <div className="fixed inset-0 bg-slate-950/40 backdrop-blur-sm flex items-center justify-center z-50 px-4">
+      <div className="bg-linear-to-br from-indigo-50 via-white to-rose-50 rounded-2xl shadow-2xl shadow-violet-200/70 max-w-md w-full p-8 relative ring-1 ring-violet-100/60">
         {/* close button */}
-        <button onClick={onClose} className="absolute top-4 right-4">
-          <X className="w-5 h-5 text-gray-500 hover:text-gray-700" />
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 text-slate-500 hover:text-violet-600 transition-colors"
+          aria-label="Close about modal"
+        >
+          <X className="w-5 h-5" />
         </button>
 
         {/* Header */}
-        <div className="flex items-center gap-2 mb-6">
-          <Sparkles className="w-6 h-6 text-teal-600" />
+        <div className="flex items-center gap-3 mb-8">
+          <Sparkles className="w-6 h-6 text-violet-600" />
           <h2 className="text-2xl font-semibold text-slate-800">
             About Jar of Duas
           </h2>
         </div>
 
-        {/* Purpose */}
-        <div className="flex items-start gap-4 mb-6">
-          <div className="bg-teal-50 p-3 rounded-full">
-            <Heart className="w-6 h-6 text-teal-600" />
-          </div>
-          <div>
-            <h3 className="text-lg font-semibold text-slate-800">Purpose</h3>
-            <p className="text-slate-600 text-sm mt-1 leading-relaxed">
-              Jar of Duas is a peaceful digital sanctuary where you can discover
-              beautiful Islamic prayers and supplications for daily spiritual
-              reflection.
-            </p>
-          </div>
-        </div>
-        {/* How It Works */}
-        <div className="flex items-start gap-4 mb-6">
-          <div className="bg-teal-50 p-3 rounded-full">
-            <NotebookPen className="w-6 h-6 text-teal-600" />
-          </div>
-          <div>
-            <h3 className="text-lg font-semibold text-slate-800">
-              How It Works
-            </h3>
-            <p className="text-slate-600 text-sm mt-1 leading-relaxed">
-              Simply click on the jar and receive a randomly selected dua. Each
-              prayer includes meaning and spiritual insight.
-            </p>
-          </div>
-        </div>
-
-        {/* Inspiration */}
-        <div className="flex items-start gap-4">
-          <div className="bg-teal-50 p-3 rounded-full">
-            <Sparkles className="w-6 h-6 text-teal-600" />
-          </div>
-          <div>
-            <h3 className="text-lg font-semibold text-slate-800">
-              Daily Inspiration
-            </h3>
-            <p className="text-slate-600 text-sm mt-1 leading-relaxed">
-              Make it a habit to draw a dua each day for spiritual guidance,
-              comfort, and connection with your faith.
-            </p>
-          </div>
+        <div className="space-y-6">
+          {infoBlocks.map(({ icon: Icon, title, body }) => (
+            <div key={title} className="flex items-start gap-4">
+              <div className="bg-linear-to-br from-indigo-100 via-violet-100 to-rose-100 p-3 rounded-2xl shadow-inner shadow-white/40">
+                <Icon className="w-6 h-6 text-violet-600" />
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-slate-800">
+                  {title}
+                </h3>
+                <p className="text-slate-600 text-sm mt-1 leading-relaxed">
+                  {body}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
