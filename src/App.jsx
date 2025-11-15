@@ -1,8 +1,9 @@
 import { useState } from "react";
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
+import Navbar from "./layouts/Navbar";
+import DuaJar from "./pages/Hero";
 import AboutModal from "./components/About";
-import Footer from "./components/Footer";
+import Footer from "./layouts/Footer";
+
 import "./index.css";
 
 function App() {
@@ -11,7 +12,7 @@ function App() {
     <div>
       <Navbar onAboutClick={() => setIsAboutOpen(true)} />
       <AboutModal open={isAboutOpen} onClose={() => setIsAboutOpen(false)} />
-      <Hero />
+      <DuaJar />
       <Footer />
     </div>
   );
